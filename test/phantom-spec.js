@@ -3,19 +3,19 @@ describe("phantom global object", function() {
         expect(typeof phantom).toEqual('object');
     });
 
-    it("should have args property", function() {
+    it("should have an args property", function() {
         expect(phantom.hasOwnProperty('args')).toBeTruthy();
     });
 
-    it("should have args as an array", function() {
+    it("should have an args as an array", function() {
         expect(typeof phantom.args).toEqual('object');
     });
 
-    it("should have libraryPath property", function() {
+    it("should have a libraryPath property", function() {
         expect(phantom.hasOwnProperty('libraryPath')).toBeTruthy();
     });
 
-    it("should have libraryPath as a string", function() {
+    it("should have a libraryPath as a string", function() {
         expect(typeof phantom.libraryPath).toEqual('string');
     });
 
@@ -23,11 +23,11 @@ describe("phantom global object", function() {
         expect(phantom.libraryPath.length).toNotEqual(0);
     });
 
-    it("should have scriptName property", function() {
+    it("should have a scriptName property", function() {
         expect(phantom.hasOwnProperty('scriptName')).toBeTruthy();
     });
 
-    it("should have scriptName as a string", function() {
+    it("should have a scriptName as a string", function() {
         expect(typeof phantom.scriptName).toEqual('string');
     });
 
@@ -35,7 +35,7 @@ describe("phantom global object", function() {
         expect(phantom.scriptName.length).toNotEqual(0);
     });
 
-    it("should have outputEncoding property", function() {
+    it("should have an outputEncoding property", function() {
         expect(phantom.hasOwnProperty('outputEncoding')).toBeTruthy();
     });
 
@@ -43,7 +43,7 @@ describe("phantom global object", function() {
         expect(phantom.outputEncoding.toLowerCase()).toEqual('utf-8');
     });
 
-    it("should have version property", function() {
+    it("should have a version property", function() {
         expect(phantom.hasOwnProperty('version')).toBeTruthy();
     });
 
@@ -59,15 +59,15 @@ describe("phantom global object", function() {
         expect(phantom.version.patch).toEqual(0);
     });
 
-    it("should have 'injectJs' function", function() {
+    it("should have an 'injectJs' function", function() {
         expect(typeof phantom.injectJs).toEqual("function");
     });
 
-    it("should have 'exit' function", function() {
+    it("should have an 'exit' function", function() {
         expect(typeof phantom.exit).toEqual("function");
     });
 
-    it("should have 'cookiesEnabled' property, and should be 'true' by default", function() {
+    it("should have a cookiesEnabled property, which should be true by default", function() {
         expect(phantom.hasOwnProperty('cookiesEnabled')).toBeTruthy();
         expect(phantom.cookiesEnabled).toBeTruthy();
     });
