@@ -38,7 +38,7 @@ describe("System object", function() {
         expect(system.args.length >= 1).toBeTruthy();
     });
 
-    it("should have args[0] as the this test runner", function() {
+    it("should have args[0] as this current test runner", function() {
         expect(system.args[0]).toMatch(/run-tests.js$/);
     });
 
