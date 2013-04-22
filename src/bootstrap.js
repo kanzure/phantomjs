@@ -215,6 +215,7 @@ phantom.callback = function(callback) {
         var paths = [], dir;
 
         if (request[0] === '.') {
+            paths.push(fs.absolute(joinPath(fs.workingDirectory, request)));
             paths.push(fs.absolute(joinPath(phantom.webdriverMode ? ":/ghostdriver" : this.dirname, request)));
         } else if (fs.isAbsolute(request)) {
             paths.push(fs.absolute(request));
