@@ -37,7 +37,7 @@ describe("Basic Files API (read, write, remove, ...)", function() {
         expect(content).toEqual("hello\nworld\n");
     });
 
-    it("should be able to read specific number of bytes from a specific position in a file", function() {
+    it("should be able to read a specific number of bytes from a specific position in a file", function() {
         var content = "";
         try{
             var f = fs.open(FILENAME, "r");
@@ -93,13 +93,13 @@ describe("Basic Files API (read, write, remove, ...)", function() {
         expect(fs.exists(FILENAME_EMPTY)).toBeFalsy();
     });
 
-    it("should throw an exception when trying to open for read a non existing file", function(){
+    it("should throw an exception when trying to open for reading a non-existing file", function(){
         expect(function(){
             fs.open(ABSENT, "r");
         }).toThrow("Unable to open file '"+ ABSENT +"'");
     });
 
-    it("should throw an exception when trying to copy a non existing file", function() {
+    it("should throw an exception when trying to copy a non-existing file", function() {
         expect(function(){
             fs.copy(ABSENT, FILENAME_COPY);
         }).toThrow("Unable to copy file '" + ABSENT + "' at '" + FILENAME_COPY + "'");
@@ -121,7 +121,7 @@ describe("Basic Files API (read, write, remove, ...)", function() {
         expect(content).toEqual(output);
     });
 
-    it("should be read/write binary data", function() {
+    it("should be able to read/write binary data", function() {
         var content, output = String.fromCharCode(0, 1, 2, 3, 4, 5);
         try {
             var f = fs.open(FILENAME_BIN, "wb");
@@ -137,7 +137,7 @@ describe("Basic Files API (read, write, remove, ...)", function() {
         expect(content).toEqual(output);
     });
 
-    it("should be read/write binary data (shortcuts)", function() {
+    it("should be able to read/write binary data (shortcuts)", function() {
         var content, output = String.fromCharCode(0, 1, 2, 3, 4, 5);
         try {
             fs.write(FILENAME_BIN, output, "b");
