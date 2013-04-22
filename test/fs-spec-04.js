@@ -7,24 +7,24 @@ describe("Tests Files API", function() {
         TEST_CONTENT = "test content",
         START_CWD = null;
 
-    it("should create some temporary file and directory", function(){
+    it("should create a temporary file and directory", function(){
         fs.makeDirectory(TEST_DIR);
         fs.write(TEST_FILE_PATH, TEST_CONTENT, "w");
     });
 
-    it("should confirm that test file and test dir exist, while the absent ones don't", function(){
+    it("should confirm that the test file and test dir exist, while the absent ones don't", function(){
         expect(fs.exists(TEST_FILE_PATH)).toBeTruthy();
         expect(fs.exists(TEST_DIR)).toBeTruthy();
         expect(fs.exists(ABSENT_FILE)).toBeFalsy();
         expect(fs.exists(ABSENT_DIR)).toBeFalsy();
     });
 
-    it("should confirm that the temporary directory is infact a directory, while the absent one doesn't", function(){
+    it("should confirm that the temporary directory is infact a directory, while the absent one isn't", function(){
         expect(fs.isDirectory(TEST_DIR)).toBeTruthy();
         expect(fs.isDirectory(ABSENT_DIR)).toBeFalsy();
     });
 
-    it("should confirm that the temporary file is infact a file, while the absent one doesn't", function(){
+    it("should confirm that the temporary file is infact a file, while the absent one isn't", function(){
         expect(fs.isFile(TEST_FILE_PATH)).toBeTruthy();
         expect(fs.isFile(ABSENT_FILE)).toBeFalsy();
     });
@@ -36,7 +36,7 @@ describe("Tests Files API", function() {
         expect(fs.isAbsolute(absPath)).toBeTruthy();
     });
 
-    it("should confirm that temporary file is readable, writable and non-executable, while absent file is none of those", function(){
+    it("should confirm that the temporary file is readable, writable and non-executable, while absent file is none of those", function(){
         expect(fs.isReadable(TEST_FILE_PATH)).toBeTruthy();
         expect(fs.isWritable(TEST_FILE_PATH)).toBeTruthy();
         expect(fs.isExecutable(TEST_FILE_PATH)).toBeFalsy();
@@ -46,7 +46,7 @@ describe("Tests Files API", function() {
         expect(fs.isExecutable(ABSENT_FILE)).toBeFalsy();
     });
 
-    it("should confirm that temporary directory is readable, writable and executable, while absent dir is none of those", function(){
+    it("should confirm that the temporary directory is readable, writable and executable, while absent dir is none of those", function(){
         expect(fs.isReadable(TEST_DIR)).toBeTruthy();
         expect(fs.isWritable(TEST_DIR)).toBeTruthy();
         expect(fs.isExecutable(TEST_DIR)).toBeTruthy();
@@ -56,7 +56,7 @@ describe("Tests Files API", function() {
         expect(fs.isExecutable(ABSENT_DIR)).toBeFalsy();
     });
 
-    it("should confirm that neither temporary file/dir or absent file/dir are links", function(){
+    it("should confirm that neither the temporary file/dir or the absent file/dir are links", function(){
         expect(fs.isLink(TEST_DIR)).toBeFalsy();
         expect(fs.isLink(TEST_FILE_PATH)).toBeFalsy();
         expect(fs.isLink(ABSENT_DIR)).toBeFalsy();
