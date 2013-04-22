@@ -8,7 +8,7 @@ describe("Files and Directories API", function() {
         expect(fs.changeWorkingDirectory(TEST_DIR)).toBeTruthy();
     });
 
-    it("should create a file in the Current Working Directory and check it's absolute path", function() {
+    it("should create a file in the Current Working Directory and check its absolute path", function() {
         fs.write(TEST_FILE, TEST_FILE, "w");
         var suffix = fs.join("", TEST_DIR, TEST_FILE),
             abs = fs.absolute(".." + suffix),
@@ -17,12 +17,12 @@ describe("Files and Directories API", function() {
         expect(lastIndex + suffix.length === abs.length);
     });
 
-    it("should return to previous Current Working Directory and remove temporary directory", function() {
+    it("should return to the previous Current Working Directory and remove the temporary directory", function() {
         expect(fs.changeWorkingDirectory(START_CWD)).toBeTruthy();
         fs.removeTree(TEST_DIR);
     });
 
-    it("should copy Content of the '/test/' Directory in a temporary directory, compare with the original and then remove", function() {
+    it("should copy the contents of the '/test/' directory into a temporary directory, compare it with the original, and then remove it", function() {
         var phantomLibraryPathListingLength = fs.list(phantom.libraryPath).length;
         fs.copyTree(phantom.libraryPath, "/tmp/"+TEST_DIR);
         expect(phantomLibraryPathListingLength === fs.list("/tmp/"+TEST_DIR).length);
@@ -30,7 +30,7 @@ describe("Files and Directories API", function() {
     });
 
     // TODO: test the actual functionality once we can create symlink.
-    it("should have readLink function", function() {
+    it("should have the readLink function", function() {
             expect(typeof fs.readLink).toEqual('function');
     });
 
@@ -99,35 +99,35 @@ describe("Files and Directories API", function() {
     describe("fs.split(path)", function() {
         var path, expected, actual;
 
-        it("should split absolute path with trailing separator", function() {
+        it("should split an absolute path with a trailing separator", function() {
             path = fs.separator + "a" + fs.separator + "b" + fs.separator + "c" + fs.separator + "d" + fs.separator;
             actual = fs.split(path);
             expected = ["", "a", "b", "c", "d"];
             expect(actual).toEqual(expected);
         });
 
-        it("should split absolute path without trailing separator", function() {
+        it("should split an absolute path without a trailing separator", function() {
             path = fs.separator + "a" + fs.separator + "b" + fs.separator + "c" + fs.separator + "d";
             actual = fs.split(path);
             expected = ["", "a", "b", "c", "d"];
             expect(actual).toEqual(expected);
         });
 
-        it("should split non-absolute path with trailing separator", function() {
+        it("should split a non-absolute path with a trailing separator", function() {
             path = "a" + fs.separator + "b" + fs.separator + "c" + fs.separator + "d" + fs.separator;
             actual = fs.split(path);
             expected = ["a", "b", "c", "d"];
             expect(actual).toEqual(expected);
         });
 
-        it("should split non-absolute path without trailing separator", function() {
+        it("should split a non-absolute path without a trailing separator", function() {
             path = "a" + fs.separator + "b" + fs.separator + "c" + fs.separator + "d";
             actual = fs.split(path);
             expected = ["a", "b", "c", "d"];
             expect(actual).toEqual(expected);
         });
 
-        it("should split path with consecutive separators", function() {
+        it("should split a path with consecutive separators", function() {
             path = "a" + fs.separator + fs.separator + fs.separator + "b" + fs.separator + "c" + fs.separator + fs.separator + "d" + fs.separator + fs.separator + fs.separator;
             expected = ["a", "b", "c", "d"];
             actual = fs.split(path);
