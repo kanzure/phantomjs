@@ -1,20 +1,20 @@
 describe("Attributes Files API", function() {
     var FILENAME = "temp-02.test",
-        CONTENT = "This is a test for PhantomJS, an awesome headless browser to do all sort of stuff :) ",
+        CONTENT = "This is a test for PhantomJS, an awesome headless browser to do all sorts of stuff :) ",
         CONTENT_MULTIPLIER = 1024,
         ABSENT = "absent-02.test";
 
-    it("should throw an exception when trying to read the size of a non existing file", function(){
+    it("should throw an exception when trying to read the size of a non-existing file", function(){
         expect(function(){
             fs.size(ABSENT);
         }).toThrow("Unable to read file '"+ ABSENT +"' size");
     });
 
-    it("should return a null Date object when trying to read the last modified date of a non existing file", function(){
+    it("should return a null Date object when trying to read the last modified date of a non-existing file", function(){
         expect(fs.lastModified(ABSENT)).toBeNull();
     });
 
-    it("should create temporary file '"+ FILENAME +"' and writes some content in it", function(){
+    it("should create a temporary file '"+ FILENAME +"' and write some content in it", function(){
         try{
             var f = fs.open(FILENAME, "w");
 
@@ -40,7 +40,7 @@ describe("Attributes Files API", function() {
         expect(now.getMilliseconds()).toNotEqual(flm.getMilliseconds());
     });
 
-    it("should remove temporary file '"+ FILENAME +"'", function(){
+    it("should remove a temporary file '"+ FILENAME +"'", function(){
         fs.remove(FILENAME);
     });
 });
